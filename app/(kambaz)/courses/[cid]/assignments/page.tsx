@@ -17,18 +17,28 @@ export default async function Assignments({
       <button id="wd-add-assignment">+ Assignment</button>
       {/* h3 wd-assignments-title */}
       <h3 id="wd-assignments-title">
-        ASSIGNMENT 40% of Total <button>+</button>
+        ASSIGNMENTS 40% of Total <button>+</button>
       </h3>
       <ul id="wd-assignment-list">
         {/* at least three AssignmentItems using cid */}
         <AssignmentItem
-          cid="1234"
+          cid={cid}
           aid="123"
-          title="A1 ENV + HTML"
+          title="A1 - ENV + HTML"
           details="Multiple Modules | Not available until May 6 at 12:00am | Due May 13 at 11:59pm | 100 pts"
         />
-        <AssignmentItem cid="1234" aid="124" title="A2 - CSS + TAILWIND" details="Multiple Modules | Not available until May 13 at 12:00am | Due May 20 at 11:59pm | 100 pts" />
-        <AssignmentItem cid="1234" aid="125" title="A3 - JAVASCRIPT + REACT" details="Multiple Modules | Not available until May 20 at 12:00am | Due May 27 at 11:59pm | 100 pts" />
+        <AssignmentItem
+          cid={cid}
+          aid="124"
+          title="A2 - CSS + TAILWIND"
+          details="Multiple Modules | Not available until May 13 at 12:00am | Due May 20 at 11:59pm | 100 pts"
+        />
+        <AssignmentItem
+          cid={cid}
+          aid="125"
+          title="A3 - JAVASCRIPT + REACT"
+          details="Multiple Modules | Not available until May 20 at 12:00am | Due May 27 at 11:59pm | 100 pts"
+        />
       </ul>
     </div>
   );
