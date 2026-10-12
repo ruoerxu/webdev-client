@@ -37,6 +37,15 @@ export default function TOC() {
             Kambaz
           </Link>
         </li>
+                <li>
+          <a
+          href="https://github.com/ruoerxu/webdev-client"
+          id="wd-github"
+          target="_blank"
+          rel="noreferrer">
+            Ruoer Xu GitHub CS 5610-02
+          </a>
+        </li>
       </ul>
     </div>
   );
