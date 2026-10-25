@@ -1,11 +1,13 @@
 import Link from "next/link";
+import * as db from "../../../../database";
 
 export default async function AssignmentEditor({
   params,
 }: {
-  params: Promise<{ cid: string }>;
+  params: Promise<{ cid: string; aid: string }>;
 }) {
-  const { cid } = await params;
+  const { cid, aid } = await params;
+  const assignment = db.assignments.find((a) => a._id === aid);
   return (
     <div id="wd-assignments-editor">
       <label htmlFor="wd-name" className="mb-1 block text-sm">
@@ -13,22 +15,22 @@ export default async function AssignmentEditor({
       </label>
       <input
         id="wd-name"
-        defaultValue="A1 - ENV + HTML"
+        defaultValue={assignment?.title ?? ""}
         className="mb-4 w-full rounded border border-neutral-300 px-3 py-2 text-sm"
       />
+      <p className="mb-4 text-sm text-neutral-600">Assignment id: {aid}</p>
       <textarea
         id="wd-description"
+        defaultValue={assignment?.description ?? ""}
         className="mb-4 h-40 w-full rounded border-neutral-300 p-3 text-sm"
-      >
-        The assignment is available online Submit a link to the landing page of
-      </textarea>
+      />
       <div className="mb-4 grid grid-cols-12 items-center gap-4">
         <label htmlFor="wd-points" className="col-span-4 text-right text-sm">
           points
         </label>
         <input
           id="wd-points"
-          defaultValue={100}
+          defaultValue={assignment?.points ?? 100}
           className="col-span-8 w-full rounded border border-neutral-300 px-3 py-2 text-sm"
         />
       </div>
@@ -144,6 +146,7 @@ export default async function AssignmentEditor({
           <input
             type="date"
             id="wd-due-date"
+            defaultValue={assignment?.due}
             className="mb-4 w-full rounded border border-neutral-300 px-3 py-2 text-sm"
           />
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -157,6 +160,7 @@ export default async function AssignmentEditor({
               <input
                 type="date"
                 id="wd-available-from"
+                defaultValue={assignment?.available}
                 className="w-full rounded border border-neutral-300 px-3 py-2 text-sm"
               />
             </div>
