@@ -24,7 +24,7 @@ export default function Images() {
       <br />
       <img
         id="wd-your-image"
-        src="/images/MyDog.jpg"
+        src="/images/myDog.jpg"
         height="200px"
         alt="My Dog"
       />
