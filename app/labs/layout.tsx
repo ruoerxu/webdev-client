@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import TOC from "./TOC";
+import "./lab2/tailwind/utilities.css";
 
 export default function LabsLayout({
   children,
