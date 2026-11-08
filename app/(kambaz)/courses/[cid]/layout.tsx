@@ -23,17 +23,17 @@ export default function CoursesLayout({
   const router = useRouter();
   const { currentUser } = useAccountContext();
   const enrollments = useEnrollmentsStore((state) => state.enrollments);
-  const isEnrolled =
+  const isBlocked =
     !!currentUser &&
-    enrollments.some(
+    !enrollments.some(
       (e) => e.user === currentUser._id && e.course === courseId,
     );
 
   useEffect(() => {
-    if (!isEnrolled) router.push("/dashboard");
-  }, [isEnrolled, router]);
+    if (isBlocked) router.push("/dashboard");
+  }, [isBlocked, router]);
 
-  if (!isEnrolled) return null;
+  if (isBlocked) return null;
 
   return (
     <div id="wd-courses">
